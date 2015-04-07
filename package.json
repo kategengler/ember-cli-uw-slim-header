@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-uw-slim-header",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A UW Boundless theme header component for Ember",
   "directories": {
     "doc": "doc",

@@ -1,15 +1,15 @@
-import fs from 'fs-extra';
-import path from 'path';
+var fs = require('fs-extra');
+var path = require('path');
 
-export default {
+module.exports = {
 
   description: 'Generates the uw-slim-header assets',
 
-  beforeInstall(options) {
+  beforeInstall: function(options) {
    return this.addBowerPackageToProject('uw-slim-header','~0.0.1');
   },
 
-  afterInstall(options) {
+  afterInstall: function(options) {
 
     this._copyHeaderBowerFiles();
 
@@ -20,9 +20,9 @@ export default {
   },
 
   // copy assets from bower path, into ember app path, for use in app
-  _copyHeaderBowerFiles() {
-    let headerBowerDir = path.join(process.cwd(), 'bower_components', 'uw-slim-header');
-    let bowerAssets = {
+  _copyHeaderBowerFiles: function() {
+    var headerBowerDir = path.join(process.cwd(), 'bower_components', 'uw-slim-header');
+    var bowerAssets = {
       styles: [
         'mini50.scss',
         'structure.scss',
@@ -33,7 +33,7 @@ export default {
     };
 
     // new app's standard style path location (destination)
-    let appStylePath = path.join(process.cwd(), 'app', 'styles');
+    var appStylePath = path.join(process.cwd(), 'app', 'styles');
 
     // copy scss files from bower to app/styles (destination)
     bowerAssets.styles.forEach(
@@ -46,4 +46,4 @@ export default {
     // copy all assets in assets dir to public
     fs.copy( bowerAssets.assetsDir, path.join(process.cwd(), 'public') );
   }
-}
+};
