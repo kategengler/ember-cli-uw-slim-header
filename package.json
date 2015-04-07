@@ -36,7 +36,8 @@
     "ember-addon"
   ],
   "dependencies": {
-    "ember-cli-babel": "^4.0.0"
+    "ember-cli-babel": "^4.0.0",
+    "fs-extra": "^0.18.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
