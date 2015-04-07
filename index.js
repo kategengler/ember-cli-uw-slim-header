@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'uw-slim-header'
+  name: 'ember-cli-uw-slim-header'
 };

@@ -37,10 +37,12 @@ module.exports = {
 
     // copy scss files from bower to app/styles (destination)
     bowerAssets.styles.forEach(
-      (file) => fs.copy(
-        path.join(process.cwd(), headerBowerDir, file),
-        path.join(process.cwd(), appStylePath, file)
-      )
+      function(file) {
+        fs.copy(
+          path.join(process.cwd(), headerBowerDir, file),
+          path.join(process.cwd(), appStylePath, file)
+        )
+      }
     );
 
     // copy all assets in assets dir to public
